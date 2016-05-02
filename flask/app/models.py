@@ -1,4 +1,8 @@
-from . import db
+from flask.ext.sqlalchemy import SQLAlchemy
+
+
+db = SQLAlchemy()
+
 
 class Example(db.Model):
     __tablename__ = 'exampless'
@@ -7,4 +11,3 @@ class Example(db.Model):
 
     def __repr__(self):
         return "<Example: {0}>".format(self.name)
-

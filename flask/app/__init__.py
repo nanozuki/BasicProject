@@ -1,12 +1,12 @@
 from flask import Flask
-from flask.ext.sqlalchemy import SQLAlchemy
+
 from flask.ext.migrate import Migrate
 
 from .main import main
+from .models import db
 from config import config
 
 
-db = SQLAlchemy()
 migrate = Migrate()
 
 
