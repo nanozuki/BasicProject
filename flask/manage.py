@@ -2,8 +2,8 @@
 
 import private_config
 from app import create_app
-from flask.ext.script import Manager, Shell
-from flask.ext.migrate import MigrateCommand
+from flask_script import Manager, Shell
+from flask_migrate import MigrateCommand
 
 app = create_app(private_config.CONFIG)
 manager = Manager(app)
