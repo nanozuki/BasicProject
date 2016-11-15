@@ -1,6 +1,5 @@
 from flask import Flask
-
-from flask.ext.migrate import Migrate
+from flask_migrate import Migrate
 
 from .main import main
 from .models import db
