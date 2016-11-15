@@ -1,22 +1,15 @@
-from flask import Flask
-from flask_migrate import Migrate
+from flask import Flask{{ migrate.py_import}}
 
-from .main import main
-from .models import db
+from .main import main{{ models.py_import }}
 from config import config
-
-
-migrate = Migrate()
-
+{{migrate.init}}
 
 def create_app(config_name):
     app = Flask(__name__)
     app.config.from_object(config[config_name])
     config[config_name].init_app(app)
+{{ models.init_app }}{{ migrate.init_app }}
 
-    db.init_app(app)
-    migrate.init_app(app, db)
-
-    app.register_blueprint(main, url_prefix='/')
+    app.register_blueprint({{ name }}, url_prefix='/')
 
     return app

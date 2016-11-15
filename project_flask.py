@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import argparse
 
-import _flask.args
+from _flask.args import Args, args
 from _flask import make_simple_project, make_project_with_blueprint
 
 
@@ -23,14 +23,15 @@ def make_argparse():
     return parser
 
 
-def make_project(args):
+def make_project():
     if args.blueprint is False:
-        make_simple_project(args)
+        make_simple_project()
     else:
-        make_project_with_blueprint(args)
+        make_project_with_blueprint()
 
 
 if __name__ == '__main__':
     parser = make_argparse()
-    _flask.args = parser.parse_args()
+    cmd_args = parser.parse_args()
+    args = Args(cmd_args)
     make_project()
