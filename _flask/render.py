@@ -5,7 +5,7 @@ _env = None
 
 
 def render_file(template, target, **args):
-    nonlocal _env
+    global _env
     if _env is None:
         _env = Environment(loader=PackageLoader('_flask', 'templates'))
     temp = _env.get_template(template)

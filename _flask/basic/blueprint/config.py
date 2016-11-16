@@ -83,3 +83,6 @@ config = {
 
     "default": Config,
 }
+
+
+app_config = config[private_config.CONFIG]

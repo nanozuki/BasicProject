@@ -1,11 +1,11 @@
-from flask.ext.sqlalchemy import SQLAlchemy
+from flask_sqlalchemy import SQLAlchemy
 
 
 db = SQLAlchemy()
 
 
 class Example(db.Model):
-    __tablename__ = 'exampless'
+    __tablename__ = 'examples'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.Unicode(16), unique=True)
 

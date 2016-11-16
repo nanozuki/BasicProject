@@ -1,5 +1,4 @@
-from flask import Flask, render_template
-from flask_script import Manager
+from flask import Flask, render_template{{script.py_import}}
 
 from . import main
 
