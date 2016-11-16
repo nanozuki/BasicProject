@@ -1,6 +1,6 @@
 from flask import Flask{{ migrate.py_import}}
 
-from .main import main{{ models.py_import }}
+from .{{ name }} import {{ name }}{{ models.py_import }}
 from config import config
 {{migrate.init}}
 

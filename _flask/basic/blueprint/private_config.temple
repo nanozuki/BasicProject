@@ -1,2 +1,4 @@
 SECRET_KEY = "<secret key>"
 CONFIG = "<config name>"
+
+# CONFIG_NAME: "develop","testing","production"

@@ -1,8 +1,11 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 import argparse
+import os
+import shutil
 
-from _flask.args import Args, args
 from _flask import make_simple_project, make_project_with_blueprint
+from _flask.arguments import Arguments
+from _flask.requirements import render_requirements
 
 
 def make_argparse():
@@ -10,7 +13,7 @@ def make_argparse():
     parser.add_argument('-b', dest='blueprint', action='store_true',
                         help='with blueprint(default name is main)')
     parser.add_argument('-n', dest='name', type=str, default='',
-                        help='main script or blurprint(if have),'
+                        help='main script or blueprint(if have),'
                         'default "server.py" or "main"')
     parser.add_argument('-m', dest='models', action='store_true',
                         help='with models')
@@ -23,15 +26,22 @@ def make_argparse():
     return parser
 
 
-def make_project():
+def make_project(args):
+    current_path = os.getcwd()
+    lib_path = os.path.dirname(os.path.abspath(__file__))
+    os.chdir(lib_path)
+    shutil.rmtree('tmp', ignore_errors=True)
     if args.blueprint is False:
-        make_simple_project()
+        make_simple_project(args)
     else:
-        make_project_with_blueprint()
+        make_project_with_blueprint(args)
+    render_requirements(args)
+    os.chdir(current_path)
+    shutil.move(os.path.join(lib_path, 'tmp'), args.target)
 
 
 if __name__ == '__main__':
     parser = make_argparse()
     cmd_args = parser.parse_args()
-    args = Args(cmd_args)
-    make_project()
+    args = Arguments(cmd_args)
+    make_project(args)

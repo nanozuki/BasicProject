@@ -1,8 +1,8 @@
-from flask import Flask, render_template{{script.py_import}}
+from flask import Flask, render_template
 
-from . import main
+from . import {{ name }}
 
 
-@main.route('/')
+@{{ name }}.route('/')
 def index():
     return render_template('index.html')
