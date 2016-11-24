@@ -20,7 +20,7 @@ def make_app(args):
     if args.models.include is True:
         render_file('models.tpl', 'tmp/app/models.py')
     make_blueprint(args)
-    render_file('manage.tpl', 'tmp/app/manage.py', script=args.script,
+    render_file('manage.tpl', 'tmp/manage.py', script=args.script,
                 migrate=args.migrate, models=args.models)
 
 
