@@ -96,9 +96,15 @@ jspm_packages
 .node_repl_history
 
 # Logs
-logs
+logs/*
+!logs/.keep
 *.log
 npm-debug.log*
 
 # System and IDEs
 .idea/
+
+# Private Settings
+private_config.py
+private/*
+!private/.keep

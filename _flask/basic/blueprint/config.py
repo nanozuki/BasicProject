@@ -21,7 +21,7 @@ class Config(object):
         debug_log_handler.setLevel(logging.DEBUG)
         debug_log_handler.setFormatter(logging.Formatter(
           '[%(asctime)s %(levelname)s in %(pathname)s %(lineno)d]:'
-          '\n\t%(message)s'))
+          ' %(message)s'))
         app.logger.addHandler(debug_log_handler)
 
         error_log = os.path.join(app.config["LOG_PATH"], 'error.log')
@@ -30,7 +30,7 @@ class Config(object):
         error_log_handler.setLevel(logging.ERROR)
         error_log_handler.setFormatter(logging.Formatter(
           '[%(asctime)s %(levelname)s in %(pathname)s %(lineno)d]:'
-          '\n\t%(message)s'))
+          ' %(message)s'))
         app.logger.addHandler(error_log_handler)
 
 
